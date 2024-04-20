@@ -1,0 +1,204 @@
+{
+  "header" : {
+    "dataModelVersion" : "3"
+  },
+  "content" : {
+    "flowSnapshot" : {
+      "externalControllerServices" : { },
+      "flowContents" : {
+        "comments" : "",
+        "componentType" : "PROCESS_GROUP",
+        "connections" : [ {
+          "backPressureDataSizeThreshold" : "1 GB",
+          "backPressureObjectThreshold" : 10000,
+          "bends" : [ ],
+          "componentType" : "CONNECTION",
+          "destination" : {
+            "comments" : "",
+            "groupId" : "06c578c3-c9be-3fff-b8b8-7bff3608f54f",
+            "id" : "f334de8d-63df-32a3-b47c-8ccd8ff027a2",
+            "instanceIdentifier" : "fd3c5479-018e-1000-16d8-a11bf16d9b25",
+            "name" : "ExtractEmailHeaders",
+            "type" : "PROCESSOR"
+          },
+          "flowFileExpiration" : "0 sec",
+          "groupIdentifier" : "06c578c3-c9be-3fff-b8b8-7bff3608f54f",
+          "identifier" : "17279288-7118-37f5-9e1d-3938d7693277",
+          "instanceIdentifier" : "fd3c65f9-018e-1000-9111-ab93b802345e",
+          "labelIndex" : 1,
+          "loadBalanceCompression" : "DO_NOT_COMPRESS",
+          "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+          "name" : "",
+          "partitioningAttribute" : "",
+          "prioritizers" : [ ],
+          "selectedRelationships" : [ "success" ],
+          "source" : {
+            "comments" : "",
+            "groupId" : "06c578c3-c9be-3fff-b8b8-7bff3608f54f",
+            "id" : "d1830e3c-7e67-3ee5-86a7-a4a6d3332412",
+            "instanceIdentifier" : "fd3baefe-018e-1000-c35f-5c14bfc22842",
+            "name" : "ListenSMTP",
+            "type" : "PROCESSOR"
+          },
+          "zIndex" : 0
+        } ],
+        "controllerServices" : [ ],
+        "defaultBackPressureDataSizeThreshold" : "1 GB",
+        "defaultBackPressureObjectThreshold" : 10000,
+        "defaultFlowFileExpiration" : "0 sec",
+        "flowFileConcurrency" : "UNBOUNDED",
+        "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
+        "funnels" : [ ],
+        "identifier" : "06c578c3-c9be-3fff-b8b8-7bff3608f54f",
+        "inputPorts" : [ ],
+        "instanceIdentifier" : "fd3ae8b4-018e-1000-01e1-c64efb01b476",
+        "labels" : [ ],
+        "name" : "TestDataFlow1",
+        "outputPorts" : [ ],
+        "position" : {
+          "x" : 520.0,
+          "y" : 159.0
+        },
+        "processGroups" : [ ],
+        "processors" : [ {
+          "autoTerminatedRelationships" : [ ],
+          "backoffMechanism" : "PENALIZE_FLOWFILE",
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-email-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.25.0"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "06c578c3-c9be-3fff-b8b8-7bff3608f54f",
+          "identifier" : "d1830e3c-7e67-3ee5-86a7-a4a6d3332412",
+          "instanceIdentifier" : "fd3baefe-018e-1000-c35f-5c14bfc22842",
+          "maxBackoffPeriod" : "10 mins",
+          "name" : "ListenSMTP",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 520.0,
+            "y" : 144.0
+          },
+          "properties" : {
+            "SMTP_TIMEOUT" : "60 seconds",
+            "SMTP_PORT" : "2525",
+            "SMTP_MAXIMUM_MSG_SIZE" : "20 MB",
+            "SMTP_MAXIMUM_CONNECTIONS" : "1"
+          },
+          "propertyDescriptors" : {
+            "SMTP_TIMEOUT" : {
+              "displayName" : "SMTP connection timeout",
+              "identifiesControllerService" : false,
+              "name" : "SMTP_TIMEOUT",
+              "sensitive" : false
+            },
+            "SSL_CONTEXT_SERVICE" : {
+              "displayName" : "SSL Context Service",
+              "identifiesControllerService" : true,
+              "name" : "SSL_CONTEXT_SERVICE",
+              "sensitive" : false
+            },
+            "SMTP_PORT" : {
+              "displayName" : "Listening Port",
+              "identifiesControllerService" : false,
+              "name" : "SMTP_PORT",
+              "sensitive" : false
+            },
+            "SMTP_MAXIMUM_MSG_SIZE" : {
+              "displayName" : "SMTP Maximum Message Size",
+              "identifiesControllerService" : false,
+              "name" : "SMTP_MAXIMUM_MSG_SIZE",
+              "sensitive" : false
+            },
+            "SMTP_HOSTNAME" : {
+              "displayName" : "SMTP hostname",
+              "identifiesControllerService" : false,
+              "name" : "SMTP_HOSTNAME",
+              "sensitive" : false
+            },
+            "SMTP_MAXIMUM_CONNECTIONS" : {
+              "displayName" : "Maximum number of SMTP connection",
+              "identifiesControllerService" : false,
+              "name" : "SMTP_MAXIMUM_CONNECTIONS",
+              "sensitive" : false
+            },
+            "CLIENT_AUTH" : {
+              "displayName" : "Client Auth",
+              "identifiesControllerService" : false,
+              "name" : "CLIENT_AUTH",
+              "sensitive" : false
+            }
+          },
+          "retriedRelationships" : [ ],
+          "retryCount" : 10,
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.email.ListenSMTP",
+          "yieldDuration" : "1 sec"
+        }, {
+          "autoTerminatedRelationships" : [ ],
+          "backoffMechanism" : "PENALIZE_FLOWFILE",
+          "bulletinLevel" : "WARN",
+          "bundle" : {
+            "artifact" : "nifi-email-nar",
+            "group" : "org.apache.nifi",
+            "version" : "1.25.0"
+          },
+          "comments" : "",
+          "componentType" : "PROCESSOR",
+          "concurrentlySchedulableTaskCount" : 1,
+          "executionNode" : "ALL",
+          "groupIdentifier" : "06c578c3-c9be-3fff-b8b8-7bff3608f54f",
+          "identifier" : "f334de8d-63df-32a3-b47c-8ccd8ff027a2",
+          "instanceIdentifier" : "fd3c5479-018e-1000-16d8-a11bf16d9b25",
+          "maxBackoffPeriod" : "10 mins",
+          "name" : "ExtractEmailHeaders",
+          "penaltyDuration" : "30 sec",
+          "position" : {
+            "x" : 1032.0,
+            "y" : 144.0
+          },
+          "properties" : {
+            "STRICT_ADDRESS_PARSING" : "true",
+            "CAPTURED_HEADERS" : "x-mailer"
+          },
+          "propertyDescriptors" : {
+            "STRICT_ADDRESS_PARSING" : {
+              "displayName" : "Email Address Parsing",
+              "identifiesControllerService" : false,
+              "name" : "STRICT_ADDRESS_PARSING",
+              "sensitive" : false
+            },
+            "CAPTURED_HEADERS" : {
+              "displayName" : "Additional Header List",
+              "identifiesControllerService" : false,
+              "name" : "CAPTURED_HEADERS",
+              "sensitive" : false
+            }
+          },
+          "retriedRelationships" : [ ],
+          "retryCount" : 10,
+          "runDurationMillis" : 0,
+          "scheduledState" : "ENABLED",
+          "schedulingPeriod" : "0 sec",
+          "schedulingStrategy" : "TIMER_DRIVEN",
+          "style" : { },
+          "type" : "org.apache.nifi.processors.email.ExtractEmailHeaders",
+          "yieldDuration" : "1 sec"
+        } ],
+        "remoteProcessGroups" : [ ],
+        "variables" : { }
+      },
+      "flowEncodingVersion" : "1.0",
+      "parameterContexts" : { },
+      "parameterProviders" : { }
+    }
+  }
+}
